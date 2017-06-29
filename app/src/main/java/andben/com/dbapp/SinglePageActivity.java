@@ -10,6 +10,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+// Activity for visning av individuelle artikler.
+// Tar på nåværende tidspunkt kun imot en intent
+// fra MainActivity, som inneholder tittel og bilde
+// fra api-kallet i sistnevnte.
+
 public class SinglePageActivity extends AppCompatActivity {
 
     private ActionBar actionBar;

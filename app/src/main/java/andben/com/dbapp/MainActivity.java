@@ -28,6 +28,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+// MainActivity som inneholder et ListView. Populeres
+// av artikler fra api-kallet.
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.mainList);
 
+
+        // ProgressDialog som vises til data er lastet.
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.progress_dialog_message));
         dialog.setCancelable(false);
@@ -59,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArticleAdapter(this, mArticles);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        // SwipeRefreshLayout som gjør det mulig å swipe
+        // mot toppen for å refreshe innhold i appen (restart
+        // av activity).
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -73,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Metode for enkle endringer av action baren.
+    // Tittel fjernes og logo legges til.
+
     private void setActionBar() {
         actionBar = getSupportActionBar();
         actionBar.setDisplayUseLogoEnabled(true);
@@ -83,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    //Legger til en dummy-meny i action baren
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
+    // Metode for http-request til api'et.
+    // Data mottas og parses via egen metode.
 
     private void getData() {
         String url = getString(R.string.api_url);
@@ -107,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
+                            alertUserAboutError();
                         }
                     });
 
@@ -147,10 +164,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Enkel AlertDialog, hvis prosessen med fetching av data
+    // ikke lykkes.
+
     private void alertUserAboutError() {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
     }
+
+    // Parsing av json-data fra api'et. Opprettes et nytt
+    // Article-objekt per json-objekt, og aktuell data settes.
+    // Alle objekter legges til i en ArrayList som brukes som
+    // parameter i adapteret for ListView'et som brukes i activity'en.
 
     private void parseJsonResponse(JSONArray jsonResponse) throws JSONException {
 

@@ -10,6 +10,9 @@ import android.os.Bundle;
  * Created by Benjamin on 29.06.2017.
  */
 
+// AlertDialogFragment som dukker opp hvis HTTP-responsen fra api'et
+// ikke er vellykket.
+
 public class AlertDialogFragment extends DialogFragment {
 
     @Override

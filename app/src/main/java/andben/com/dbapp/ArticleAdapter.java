@@ -19,6 +19,8 @@ import java.util.ArrayList;
  * Created by Benjamin on 26.06.2017.
  */
 
+// Adapter for ListView'et som brukes i MainActivity.
+
 public class ArticleAdapter extends BaseAdapter {
 
     private Context mContext;
@@ -71,6 +73,9 @@ public class ArticleAdapter extends BaseAdapter {
 
         holder.headerTextView.setText(Html.fromHtml(article.getTitle()));
 
+        // Switch-case for å finne ut hvilken label artikkelen har. Setter
+        // label-TextViews farge og tekst basert på dette.
+
         String label = article.getLabel();
         switch (label){
             case "pluss":
@@ -108,6 +113,9 @@ public class ArticleAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    // ViewHolder inner class. For å unngå større mengder
+    // kall til view.findViewById(int), som kan være kostbart.
 
     private static class ViewHolder {
         ImageView articleImageView;

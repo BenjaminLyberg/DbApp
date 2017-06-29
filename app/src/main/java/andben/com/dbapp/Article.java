@@ -7,7 +7,9 @@ import android.os.Parcelable;
  * Created by Benjamin on 26.06.2017.
  */
 
-public class Article implements Parcelable{
+// Klasse for individuelle artikkel-objekter
+
+public class Article {
     private int id;
     private String type;
     private String title;
@@ -56,34 +58,5 @@ public class Article implements Parcelable{
         this.label = label;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(title);
-        dest.writeString(image);
-    }
-
-    private Article(Parcel in){
-        id = in.readInt();
-        title = in.readString();
-        image = in.readString();
-
-    }
-
-    public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() {
-        @Override
-        public Article createFromParcel(Parcel source) {
-            return new Article(source);
-        }
-
-        @Override
-        public Article[] newArray(int size) {
-            return new Article[size];
-        }
-    };
 }
