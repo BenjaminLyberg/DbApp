@@ -46,9 +46,14 @@ public class ArticleAdapter extends BaseAdapter {
         return 0;
     }
 
+    // Opprettelse av Views per celle i ListViewet.
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+
+        // For å sørge for at inflates av Views holdes på et minimum (kun så mange som
+        // er synlige på skjermen).
 
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.article_list_item, null);
