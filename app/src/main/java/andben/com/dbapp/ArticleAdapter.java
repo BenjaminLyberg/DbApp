@@ -2,6 +2,7 @@ package andben.com.dbapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,7 @@ public class ArticleAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.articleImageView = (ImageView)convertView.findViewById(R.id.articleImageView);
             holder.headerTextView = (TextView) convertView.findViewById(R.id.headerTextView);
+            holder.tagLabelTextView = (TextView) convertView.findViewById(R.id.tagLabelTextView);
 
             convertView.setTag(holder);
 
@@ -69,6 +71,30 @@ public class ArticleAdapter extends BaseAdapter {
         }
 
         holder.headerTextView.setText(Html.fromHtml(article.getTitle()));
+
+        String label = article.getLabel();
+        switch (label){
+            case "pluss":
+                holder.tagLabelTextView.setBackgroundColor(Color.BLACK);
+                holder.tagLabelTextView.setText("DAGBLADET PLUSS");
+                break;
+            case "dinside":
+                holder.tagLabelTextView.setBackgroundColor(Color.BLACK);
+                holder.tagLabelTextView.setText("DINSIDE");
+                break;
+            case "video":
+                holder.tagLabelTextView.setBackgroundColor(Color.parseColor("#ed1c24"));
+                holder.tagLabelTextView.setText("VIDEO".toUpperCase());
+                break;
+            case "kommentar":
+                holder.tagLabelTextView.setBackgroundColor(Color.parseColor("#009999"));
+                holder.tagLabelTextView.setText("KOMMENTAR".toUpperCase());
+                break;
+            default:
+                holder.tagLabelTextView.setBackgroundColor(Color.WHITE);
+        }
+
+
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,5 +113,6 @@ public class ArticleAdapter extends BaseAdapter {
     private static class ViewHolder {
         ImageView articleImageView;
         TextView headerTextView;
+        TextView tagLabelTextView;
     }
 }

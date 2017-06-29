@@ -12,6 +12,7 @@ public class Article implements Parcelable{
     private String type;
     private String title;
     private String image;
+    private String label;
 
     public Article() {}
 
@@ -45,6 +46,14 @@ public class Article implements Parcelable{
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     @Override

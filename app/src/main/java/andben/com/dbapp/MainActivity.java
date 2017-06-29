@@ -162,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
             article.setId(jsonObject.getInt("id"));
             article.setType(jsonObject.getString("type"));
             article.setTitle(jsonObject.getString("title"));
+            article.setLabel(jsonObject.getJSONObject("label").getString("text"));
             article.setImage(jsonObject.getJSONObject("image")
                     .getString("image_url")+"&width=600&height=500");
             mArticles.add(article);

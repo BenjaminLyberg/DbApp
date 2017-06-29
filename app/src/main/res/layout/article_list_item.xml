@@ -24,10 +24,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/articleImageView"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="Norwegian-pilotene takket nei til firedobbel lønn"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tagLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/headerTextView"
+        android:layout_marginBottom="20dp"
+        android:padding="4dp"
+        android:textColor="@android:color/white"
+        android:typeface="normal"
+        android:fontFamily="sans-serif-thin"
+        tools:background="#000000"
+        tools:text="DAGBLADET PLUSS"/>
 </RelativeLayout>
