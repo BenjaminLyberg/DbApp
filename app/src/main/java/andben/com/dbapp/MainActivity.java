@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Article> mArticles = new ArrayList<>();
     private ArticleAdapter adapter;
 
-    ListView listView;
-    ActionBar actionBar;
-    ProgressDialog dialog;
-    SwipeRefreshLayout mSwipeRefreshLayout;
+    private ListView listView;
+    private ActionBar actionBar;
+    private ProgressDialog dialog;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRefresh() {
                 Intent refresh = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(refresh);
-                finish(); //
+                finish();
             }
         });
 
@@ -136,9 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         else {
                             alertUserAboutError();
                         }
-                    } catch (IOException e) {
-                        Log.e(TAG, "Exception caught: ", e);
-                    } catch (JSONException e){
+                    } catch (IOException | JSONException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
                 }
