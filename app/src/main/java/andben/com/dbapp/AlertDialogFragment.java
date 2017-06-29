@@ -1,4 +1,4 @@
-package andben.com.listtester;
+package andben.com.dbapp;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

@@ -1,4 +1,4 @@
-package andben.com.listtester;
+package andben.com.dbapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

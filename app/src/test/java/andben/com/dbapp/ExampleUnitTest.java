@@ -1,4 +1,4 @@
-package andben.com.listtester;
+package andben.com.dbapp;
 
 import org.junit.Test;
 

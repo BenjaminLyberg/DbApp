@@ -1,6 +1,5 @@
-package andben.com.listtester;
+package andben.com.dbapp;
 
-import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
