@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class ArticleAdapter extends BaseAdapter {
 
-    public final String TAG = ArticleAdapter.class.getSimpleName();
     private Context mContext;
     private ArrayList<Article> mArticles;
 
@@ -84,11 +83,11 @@ public class ArticleAdapter extends BaseAdapter {
                 break;
             case "video":
                 holder.tagLabelTextView.setBackgroundColor(Color.parseColor("#ed1c24"));
-                holder.tagLabelTextView.setText("VIDEO".toUpperCase());
+                holder.tagLabelTextView.setText("VIDEO");
                 break;
             case "kommentar":
                 holder.tagLabelTextView.setBackgroundColor(Color.parseColor("#009999"));
-                holder.tagLabelTextView.setText("KOMMENTAR".toUpperCase());
+                holder.tagLabelTextView.setText("KOMMENTAR");
                 break;
             default:
                 holder.tagLabelTextView.setBackgroundColor(Color.WHITE);
