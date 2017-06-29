@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ListTester</string>
+    <string name="error_title">Feil</string>
+    <string name="error_message">En feil oppstod med forbindelsen. Prøv igjen</string>
+    <string name="error_button_text">Ok</string>
+    <string name="progress_dialog_message">Laster innhold</string>
+    <string name="menu_option_text_1">BRUKER</string>
+    <string name="api_url">http://cesar-stage.medialaben.no/api/v1/front/100092</string>
+    <string name="network_error_toast_text">Network unavailable</string>
+</resources>
